@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Coin from "./Coin";
 import './App.css'
-import loadinggif from './loading.gif'
+
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [more,setMore] = useState(10)
-  const [loading,setLoading] = useState(true)
+
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -26,11 +26,11 @@ function App() {
   useEffect(() => {
     Axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=huf&order=market_cap_desc&per_page=${more}&page=1&sparkline=false`
-    ).then((res) => setCoins(res.data)) && setLoading(false);
+    ).then((res) => setCoins(res.data));
   }, [more]);
 
   return (
-    loading ?  <img src={loadinggif} /> : <div className="coin-app">
+   <div className="coin-app">
     <div className="coin-search">
       <form>
         <input
