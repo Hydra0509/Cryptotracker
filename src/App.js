@@ -3,6 +3,9 @@ import Axios from "axios";
 import Coin from "./Coin";
 import "./App.css";
 import loadingimage from "./giphy.gif";
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -70,13 +73,14 @@ function App() {
   }, [more,usdCurrency,hufCurrency,eurCurrency,currencyText,usdCurrencyText]);
 
   return (
+    <Container class=".container-fluid md">
     <div>
       {loading ? (
         <div className="coin-app">
         <div className="currencyButtons">
-        <button onClick={usdCurrency}>USD</button>
-        <button onClick={eurCurrency}>EUR</button>
-        <button onClick={hufCurrency}>HUF</button>
+        <Button style={{boxShadow: "none"}} variant="primary" onClick={usdCurrency}>$ USD</Button>
+        <Button style={{boxShadow: "none"}} variant="primary" onClick={eurCurrency}>EUR €</Button>
+        <Button style={{boxShadow: "none"}} variant="primary" onClick={hufCurrency}>HUF</Button>
         </div>
           <div className="coin-search">
             <form>
@@ -102,13 +106,14 @@ function App() {
             );
           })}
           <div className="loadmore-button">
-            <button onClick={loadMore}>Load More</button>
+          <Button style={{boxShadow: "none"}} variant="primary" onClick={loadMore}>Load More</Button>
           </div>
         </div>
       ) : (
         <div className="loading-gif-div"><img alt="loading image" className="loading-gif" src={loadingimage} /><h1>Loading...</h1></div>
       )}
     </div>
+    </Container>
   );
 }
 
