@@ -34,17 +34,6 @@ form input {
   align-items: center;
 }
 
-/* button {
-  font-size: 18px;
-  font-weight:bolder;
-  height:30px;
-  width: 120px;
-  background: rgb(58, 204, 226);
-  color:black;
-  border-radius: 10%;
-  box-shadow: 2px 5px 2px 2px black;
-  cursor: pointer;
-} */
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -60,17 +49,12 @@ form input {
   background: rgb(29,155,240);
 }
 
-.loading-gif {
-  width:10%;
-  height: 10%;
-}
-
-.loading-gif-div {
-  padding-top: 20rem;
-  display: flex;
-  flex-direction: column;
+.loading {
+  display:flex;
   justify-content: center;
   align-items: center;
+  margin-top:400px;
+  gap:20px;
 }
 
 .currencyButtons {
@@ -78,17 +62,5 @@ form input {
   display:flex;
   flex-direction:row;
   justify-content: flex-end;
-  gap: 20px;
-}
 
-/* button:active {
-  font-size: 16px;
-  font-weight: bold;
-  height:30px;
-  width: 120px;
-  background:rgb(7, 113, 184);
-  color:white;
-  border-radius: 10%;
-  box-shadow: 2px 5px 2px 2px black;
-  cursor: pointer;
-} */
+}

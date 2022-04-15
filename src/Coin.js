@@ -1,8 +1,12 @@
 import React from "react";
 import "./Coin.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Coin = ({ name, symbol, image, price, priceChange,currency,usdCurrency}) => {
   return (
+    <Row>
     <div className="coin-container">
       <div className="coin-row">
         <div className="coin">
@@ -20,6 +24,7 @@ const Coin = ({ name, symbol, image, price, priceChange,currency,usdCurrency}) =
         </div>
       </div>
     </div>
+    </Row>
   );
 };
 

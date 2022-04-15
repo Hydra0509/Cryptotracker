@@ -2,19 +2,23 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Coin from "./Coin";
 import "./App.css";
-import loadingimage from "./giphy.gif";
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Spinner from "react-bootstrap/Spinner";
+import ThemeProvider from "react-bootstrap/ThemeProvider";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Coin2 from './Coin2'
 
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [more, setMore] = useState(10);
   const [loading, setLoading] = useState(false);
-  const [currentCurrency,setCurrentCurrency] = useState('huf')
-  const [currencyText,setCurrencyText] = useState('Ft')
-  const [usdCurrencyText,setUsdCurrencyText] = useState()
+  const [currentCurrency, setCurrentCurrency] = useState("huf");
+  const [currencyText, setCurrencyText] = useState("Ft");
+  const [usdCurrencyText, setUsdCurrencyText] = useState();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -32,26 +36,26 @@ function App() {
   };
 
   function usdCurrency() {
-    if (currentCurrency == 'huf' || 'eur' && currencyText == 'Ft' || 'EUR') {
-      setCurrentCurrency('usd')
-      setUsdCurrencyText('$')
-      setCurrencyText('')
+    if (currentCurrency == "huf" || ("eur" && currencyText == "Ft") || "EUR") {
+      setCurrentCurrency("usd");
+      setUsdCurrencyText("$");
+      setCurrencyText("");
     }
   }
 
   function hufCurrency() {
-    if (currentCurrency == 'usd' || 'eur' && currencyText == '$' || 'EUR') {
-      setCurrentCurrency('huf')
-      setCurrencyText('Ft')
-      setUsdCurrencyText('')
+    if (currentCurrency == "usd" || ("eur" && currencyText == "$") || "EUR") {
+      setCurrentCurrency("huf");
+      setCurrencyText("Ft");
+      setUsdCurrencyText("");
     }
   }
 
   function eurCurrency() {
-    if (currentCurrency == 'huf' || 'usd' && currencyText == '$' || 'Ft') {
-      setCurrentCurrency('eur')
-      setCurrencyText('EUR')
-      setUsdCurrencyText('')
+    if (currentCurrency == "huf" || ("usd" && currencyText == "$") || "Ft") {
+      setCurrentCurrency("eur");
+      setCurrencyText("€");
+      setUsdCurrencyText("");
     }
   }
 
@@ -70,50 +74,96 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, [more,usdCurrency,hufCurrency,eurCurrency,currencyText,usdCurrencyText]);
+  }, [
+    more,
+    usdCurrency,
+    hufCurrency,
+    eurCurrency,
+    currencyText,
+    usdCurrencyText,
+  ]);
 
   return (
-    <Container class=".container-fluid md">
-    <div>
-      {loading ? (
-        <div className="coin-app">
-        <div className="currencyButtons">
-        <Button style={{boxShadow: "none"}} variant="primary" onClick={usdCurrency}>$ USD</Button>
-        <Button style={{boxShadow: "none"}} variant="primary" onClick={eurCurrency}>EUR €</Button>
-        <Button style={{boxShadow: "none"}} variant="primary" onClick={hufCurrency}>HUF</Button>
+    <ThemeProvider
+      breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
+    >
+      <Container class="container-fluid md">
+        <div>
+          {loading ? (
+            <div className="coin-app">
+              <Row className="currencyButtons" xs={true} md={true}>
+                <Col sm={2} md={1}>
+                  <Button
+                    style={{ boxShadow: "none" }}
+                    variant="primary"
+                    onClick={usdCurrency}
+                  >
+                    $ USD
+                  </Button>
+                </Col>
+                <Col sm={2} md={1}>
+                  <Button
+                    style={{ boxShadow: "none" }}
+                    variant="primary"
+                    onClick={eurCurrency}
+                  >
+                    EUR €
+                  </Button>
+                </Col>
+                <Col sm={2} md={1}>
+                  <Button
+                    style={{ boxShadow: "none" }}
+                    variant="primary"
+                    onClick={hufCurrency}
+                  >
+                    HUF
+                  </Button>
+                </Col>
+              </Row>
+              <div className="coin-search">
+                <form>
+                  <input
+                    type="text"
+                    placeholder="Search for a currency"
+                    onChange={handleChange}
+                  />
+                </form>
+              </div>
+              {filteredCoins.map((coin) => {
+                return (
+                  <Coin2
+                    key={coin.id}
+                    image={coin.image}
+                    name={coin.name}
+                    price={coin.current_price}
+                    symbol={coin.symbol}
+                    priceChange={coin.price_change_percentage_24h}
+                    currency={currencyText}
+                    usdCurrency={usdCurrencyText}
+                  />
+                );
+              })}
+              <div className="loadmore-button">
+                <Button
+                  style={{ boxShadow: "none" }}
+                  variant="primary"
+                  onClick={loadMore}
+                >
+                  Load More
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="loading">
+              <Spinner animation="border" role="status"></Spinner>
+              <div>
+                <h1>Loading...</h1>
+              </div>
+            </div>
+          )}
         </div>
-          <div className="coin-search">
-            <form>
-              <input
-                type="text"
-                placeholder="Search for a currency"
-                onChange={handleChange}
-              />
-            </form>
-          </div>
-          {filteredCoins.map((coin) => {
-            return (
-              <Coin
-                key={coin.id}
-                image={coin.image}
-                name={coin.name}
-                price={coin.current_price}
-                symbol={coin.symbol}
-                priceChange={coin.price_change_percentage_24h}
-                currency={currencyText}
-                usdCurrency={usdCurrencyText}
-              />
-            );
-          })}
-          <div className="loadmore-button">
-          <Button style={{boxShadow: "none"}} variant="primary" onClick={loadMore}>Load More</Button>
-          </div>
-        </div>
-      ) : (
-        <div className="loading-gif-div"><img alt="loading image" className="loading-gif" src={loadingimage} /><h1>Loading...</h1></div>
-      )}
-    </div>
-    </Container>
+      </Container>
+    </ThemeProvider>
   );
 }
 

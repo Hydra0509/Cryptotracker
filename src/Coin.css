@@ -1,15 +1,10 @@
 .coin-container {
     display:flex;
-    justify-content: center;
-
+    justify-content: center
   }
   
   .coin-row {
-    display:flex;
-    flex-direction: row;
-    justify-items: start;
-    align-items: center;
-    height: 140px;
+    height: 150px;
     border-bottom: 2px solid black;
     width:100%;
   }
@@ -19,13 +14,16 @@
       align-items: center;
       padding-right: 24px;
       min-width: 300px;
+      margin-right:150px;
+      margin-left: 100px;
   }
 
   .coin img {
-      height:2rem;
-      width:2rem;
-      margin-right: 10px;
+      height:3rem;
+      width:3rem;
+      margin-right: 15px;
       margin-left: 10px;
+      margin-bottom: 10px;
 }
 
 .coin h1 {
@@ -43,6 +41,7 @@
     text-align: center;
     justify-content: space-between;
     width:100%;
+    padding-top: 45px;
 }
 
 .coin-price {
