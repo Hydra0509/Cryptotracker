@@ -54,7 +54,7 @@ form input {
 }
 
 .currencyButtons {
-  padding: 20px 85px 0px 0px;
+  padding: 20px 84px 0px 0px;
   display:flex;
   flex-direction:row;
   justify-content: flex-end;
