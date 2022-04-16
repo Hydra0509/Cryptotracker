@@ -13,19 +13,19 @@ const Coin2 = ({ name, symbol, image, price, priceChange,currency,usdCurrency}) 
   >
     <Container fluid className="coin-container">
         <Row className="coin-row" >
-            <Col xs={4} xxs={3} sm={1} md={3} lg={1} xxl={1} xxxl={3} xl={1} className="coin">
+            <Col xs={4} xxs={1} sm={4} md={3} lg={1} xxl={1} xxxl={3} xl={1} className="coin">
             <img src={image} alt="crypto" />
              <h1>{name}</h1>
           </Col>
 
-        <Col xs={4} xxs={3} sm={3} md={3} lg={1} xxl={2} xxxl={3}  xl={1} className="coin-data">
+        <Col xs={4} xxs={1} sm={4} md={3} lg={1} xxl={2} xxxl={3}  xl={1} className="coin-data">
           <p className="coin-symbol">{symbol}</p>
         </Col>
         
-        <Col xs={4} xxs={3} sm={3} md={3} lg={1} xxl={2} xxxl={3}   xl={2} className="coin-data">
+        <Col xs={4} xxs={1} sm={4} md={3} lg={1} xxl={2} xxxl={3}   xl={2} className="coin-data">
           <p className="coin-price">{usdCurrency}{price} {currency}</p>
         </Col>
-      <Col xs={2} xxs={3} sm={3} md={3} lg={1} xxl={2} xxxl={3} xl={1} className="coin-data">
+      <Col xs={2} xxs={1} sm={4} md={3} lg={1} xxl={2} xxxl={3} xl={1} className="coin-data">
           {priceChange < 0 ? (
             <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
           ) : (

@@ -96,7 +96,7 @@ function App() {
           {loading ? (
             <div className="coin-app">
               <Row className="currencyButtons" xs={true} md={true}>
-                <Col sm={2} md={1}>
+                <Col  xs={3} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
                   <Button
                     style={{ boxShadow: "none" }}
                     variant="primary"
@@ -105,7 +105,7 @@ function App() {
                     $ USD
                   </Button>
                 </Col>
-                <Col sm={2} md={1}>
+                <Col  xs={3} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
                   <Button
                     style={{ boxShadow: "none" }}
                     variant="primary"
@@ -114,7 +114,7 @@ function App() {
                     EUR €
                   </Button>
                 </Col>
-                <Col sm={2} md={1}>
+                <Col  xs={2} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
                   <Button
                     style={{ boxShadow: "none" }}
                     variant="primary"
@@ -125,7 +125,7 @@ function App() {
                 </Col>
               </Row>
                 <Form>
-                  <InputGroup size="sm">
+                  <InputGroup size="lg">
                   <FormControl
                     className="coin-search" 
                     type="text"
