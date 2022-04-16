@@ -4,9 +4,10 @@
   }
   
   .coin-row {
-    height: 150px;
+    height: 200px;
     border-bottom: 2px solid black;
     width:100%;
+    margin-bottom: 3rem;
   }
 
   .coin {
@@ -41,7 +42,7 @@
     text-align: center;
     justify-content: space-between;
     width:100%;
-    padding-top: 45px;
+    padding-top: 70px;
 }
 
 .coin-price {

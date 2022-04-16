@@ -10,6 +10,10 @@ import ThemeProvider from "react-bootstrap/ThemeProvider";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Coin2 from './Coin2'
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import InputGroup from 'react-bootstrap/InputGroup'
+
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -120,15 +124,16 @@ function App() {
                   </Button>
                 </Col>
               </Row>
-              <div className="coin-search">
-                <form>
-                  <input
+                <Form>
+                  <InputGroup size="sm">
+                  <FormControl
+                    className="coin-search" 
                     type="text"
-                    placeholder="Search for a currency"
+                    placeholder="Search currency"
                     onChange={handleChange}
                   />
-                </form>
-              </div>
+                </InputGroup>
+                </Form>
               {filteredCoins.map((coin) => {
                 return (
                   <Coin2

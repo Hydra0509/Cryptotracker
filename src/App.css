@@ -11,10 +11,6 @@
 .coin-search {
   margin-top: 64px;
   margin-bottom: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 form input {
@@ -62,5 +58,4 @@ form input {
   display:flex;
   flex-direction:row;
   justify-content: flex-end;
-
 }
