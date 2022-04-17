@@ -9,7 +9,7 @@ import Spinner from "react-bootstrap/Spinner";
 import ThemeProvider from "react-bootstrap/ThemeProvider";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Coin2 from './Coin2'
+import Coin2 from './Coin'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -96,18 +96,18 @@ function App() {
           {loading ? (
             <div className="coin-app">
               <Row className="currencyButtons" xs={true} md={true}>
-                <Col  xs={3} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
+                <Col  xs={4} xxs={2} sm={3} md={3} lg={2} xxl={1} xxxl={3} xl={2}>
                   <Button
-                    style={{ boxShadow: "none" }}
+                    style={{ boxShadow: "none", width: "90px" }}
                     variant="primary"
                     onClick={usdCurrency}
                   >
                     $ USD
                   </Button>
                 </Col>
-                <Col  xs={3} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
+                <Col  xs={4} xxs={2} sm={3} md={3} lg={2} xxl={1} xxxl={3} xl={2}>
                   <Button
-                    style={{ boxShadow: "none" }}
+                    style={{ boxShadow: "none", width: "90px" }}
                     variant="primary"
                     onClick={eurCurrency}
                   >
@@ -116,7 +116,7 @@ function App() {
                 </Col>
                 <Col  xs={2} xxs={2} sm={3} md={3} lg={1} xxl={1} xxxl={3} xl={1}>
                   <Button
-                    style={{ boxShadow: "none" }}
+                    style={{ boxShadow: "none", width: "90px" }}
                     variant="primary"
                     onClick={hufCurrency}
                   >
@@ -136,7 +136,7 @@ function App() {
                 </Form>
               {filteredCoins.map((coin) => {
                 return (
-                  <Coin2
+                  <Coin
                     key={coin.id}
                     image={coin.image}
                     name={coin.name}
